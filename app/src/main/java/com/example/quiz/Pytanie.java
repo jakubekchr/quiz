@@ -5,11 +5,26 @@ public class Pytanie {
     private String trescPytania;
     private boolean poprawnaOdpowiedz;
     private boolean czyPoprawnie;
+    private String podpowiedz;
 
-    public Pytanie(long idZdjecia, String trescPytania, boolean poprawnaOdpowiedz) {
+    // Konstruktor bez podpowiedzi
+    public Pytanie(long idZdjecia, String trescPytania,
+                   boolean poprawnaOdpowiedz) {
         this.idZdjecia = idZdjecia;
         this.trescPytania = trescPytania;
         this.poprawnaOdpowiedz = poprawnaOdpowiedz;
+        this.czyPoprawnie = false;
+        this.podpowiedz = "Nie ma";
+    }
+
+    // Konstruktor z podpowiedzią
+    public Pytanie(long idZdjecia, String trescPytania,
+                   boolean poprawnaOdpowiedz, String podpowiedz) {
+        this.idZdjecia = idZdjecia;
+        this.trescPytania = trescPytania;
+        this.poprawnaOdpowiedz = poprawnaOdpowiedz;
+        this.czyPoprawnie = false;
+        this.podpowiedz = podpowiedz;
     }
 
     public long getIdZdjecia() {
@@ -30,5 +45,13 @@ public class Pytanie {
 
     public void setCzyPoprawnie(boolean czyPoprawnie) {
         this.czyPoprawnie = czyPoprawnie;
+    }
+
+    public String getPodpowiedz() {
+        return podpowiedz;
+    }
+
+    public void setPodpowiedz(String podpowiedz) {
+        this.podpowiedz = podpowiedz;
     }
 }

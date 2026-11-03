@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
 
-    private Button buttonTak, buttonNie, buttonDalej;
+    private Button buttonTak, buttonNie, buttonDalej,podpowiedz;
 
     private TextView textView;
 
@@ -43,8 +43,19 @@ public class MainActivity extends AppCompatActivity {
         buttonTak = findViewById(R.id.button);
         buttonNie = findViewById(R.id.button4);
         buttonDalej = findViewById(R.id.button12);
+        podpowiedz= findViewById(R.id.podpowiedz);
         imageView = findViewById(R.id.imageView);
         wypiszPytanie(0);
+
+
+        podpowiedz.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                }
+        );
 
         buttonTak.setOnClickListener(
                 new View.OnClickListener() {
@@ -103,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private void dodajPytania() {
         pytania = new ArrayList<>();
-        pytania.add(new Pytanie(R.drawable.tygrys, "Czy tygrys to fajny kotek?", true));
-        pytania.add(new Pytanie(R.drawable.slon, "Czy slon spi na stojac?",false));
-        pytania.add(new Pytanie(R.drawable.myszojelen, "czy myszojelen jest goated?",true));
-        pytania.add(new Pytanie(R.drawable.papuga, "czy papuga lata pod woda?",false));
-        pytania.add(new Pytanie(R.drawable.kot, "czy kot szczeka?",false));
+        pytania.add(new Pytanie(R.drawable.tygrys, "Czy tygrys to fajny kotek?", true,"dasdas"));
+        pytania.add(new Pytanie(R.drawable.slon, "Czy slon spi na stojac?",false,"dsad"));
+        pytania.add(new Pytanie(R.drawable.myszojelen, "czy myszojelen jest goated?",true,"dasd"));
+        pytania.add(new Pytanie(R.drawable.papuga, "czy papuga lata pod woda?",false,"dasdas"));
+        pytania.add(new Pytanie(R.drawable.kot, "czy kot szczeka?",false,"dasd"));
     }
 }
