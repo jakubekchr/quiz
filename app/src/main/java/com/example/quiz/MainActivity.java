@@ -2,6 +2,7 @@ package com.example.quiz;
 
 import static android.view.View.INVISIBLE;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Pytanie> pytania;
+    private static ArrayList<Pytanie> pytania;
 
     private ImageView imageView;
 
@@ -52,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                    Intent intent = new Intent(MainActivity.this,PodpowiedzActivity.class);
+                    intent.putExtra("NR",aktualne);
+                    startActivity(intent);
                     }
                 }
         );
@@ -112,12 +115,13 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(pytanko.getTrescPytania());
         imageView.setImageResource((int)pytanko.getIdZdjecia());
     }
-    private void dodajPytania() {
+    protected static ArrayList<Pytanie> dodajPytania() {
         pytania = new ArrayList<>();
         pytania.add(new Pytanie(R.drawable.tygrys, "Czy tygrys to fajny kotek?", true,"dasdas"));
         pytania.add(new Pytanie(R.drawable.slon, "Czy slon spi na stojac?",false,"dsad"));
         pytania.add(new Pytanie(R.drawable.myszojelen, "czy myszojelen jest goated?",true,"dasd"));
         pytania.add(new Pytanie(R.drawable.papuga, "czy papuga lata pod woda?",false,"dasdas"));
         pytania.add(new Pytanie(R.drawable.kot, "czy kot szczeka?",false,"dasd"));
+        return pytania;
     }
 }
